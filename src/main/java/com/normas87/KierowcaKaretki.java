@@ -17,11 +17,11 @@ public class KierowcaKaretki extends Kierowca {
     @Override
     public void startWezwanie(String wezwanie) {
         statusKierowcy = StatusKierowcy.W_TRAKCIE_AKCJI_RATOWNICZEJ;
-        System.out.println("Rozpoczynam akcje " + wezwanie);
+        System.out.println("Rozpoczynam akcje: " + wezwanie);
     }
 
     @Override
-    public void stopWezwanie() {
+    public void stopWezwanie(String wezwanie) {
         statusKierowcy = StatusKierowcy.W_GOTOWOSCI_DO_PODJECIA_AKCJI;
         dyspozytor.updateStatusKierowcy(this);
     }

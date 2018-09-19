@@ -11,7 +11,7 @@ public class App {
         dyspozytor.addKierowca(janusz);
         dyspozytor.addKierowca(roman);
 
-        dyspozytor.przyjmijWezwanie("Katar, ul.Roweckiego 2/10");
+        dyspozytor.przyjmijWezwanie("Katar, ul.Roweckiego 2/10, Police", PriorytetWezwania.NISKI);
 
     }
 }
