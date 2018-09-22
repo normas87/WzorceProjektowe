@@ -3,7 +3,7 @@ package com.normas87;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DyspozytorKaretki implements Dyspozytor{
+public class DyspozytorKaretki implements Dyspozytor {
 
     private List<Kierowca> kierowcy;
 
@@ -13,20 +13,22 @@ public class DyspozytorKaretki implements Dyspozytor{
 
     @Override
     public void przyjmijWezwanie(String wezwanie, PriorytetWezwania priorytetWezwania) {
-        System.out.println("Podejmuję akcje: " + wezwanie +"," + "Priorytet wezwania: " + priorytetWezwania);
-        wyslijWezwanie(wezwanie);
+        System.out.println("Podejmuję akcje: " + wezwanie + "," + "Priorytet wezwania: " + priorytetWezwania);
+        wyslijWezwanie(wezwanie, priorytetWezwania);
     }
 
-    @Override
-    public void wyslijWezwanie(String wezwanie) {
-        for (Kierowca kierowca : kierowcy) {
-            if (kierowca.statusKierowcy == StatusKierowcy.W_GOTOWOSCI_DO_PODJECIA_AKCJI) && (Wezwanie.priorytetWezwania == PriorytetWezwania.WYSOKI){
-                kierowca.startWezwanie(wezwanie);
-                return;
+        @Override
+        public void wyslijWezwanie (String wezwanie, PriorytetWezwania priorytetWezwania){
+            for (Kierowca kierowca : kierowcy) {
+                if (kierowca.statusKierowcy == StatusKierowcy.W_GOTOWOSCI_DO_PODJECIA_AKCJI && priorytetWezwania == PriorytetWezwania.WYSOKI) {
+                    kierowca.startWezwanie(wezwanie);
+                    return;
+                }
             }
         }
 
-    }
+
+
 
     @Override
     public void updateStatusKierowcy(Kierowca kierowca) {
